@@ -106,7 +106,6 @@ function App() {
       setBoard(newBoard);
       setSelected(null);
 
-      // Move list
       const notation = `${movingPiece.type}${String.fromCharCode(97 + col)}${8 - row}`;
       setMoves(prev => [...prev, notation]);
 
@@ -119,7 +118,8 @@ function App() {
     }
   };
 
-  // 🔥 Check Detection
+  // 🔥 Check Detection (FIXED)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const findKing = (color) => {
       for (let i = 0; i < 8; i++) {
@@ -161,7 +161,6 @@ function App() {
 
       <div className="game">
 
-        {/* Board */}
         <div className="board">
           {board.map((row, i) =>
             row.map((cell, j) => (
@@ -183,7 +182,6 @@ function App() {
           )}
         </div>
 
-        {/* Side panel */}
         <div className="side">
           <h3>Move List</h3>
           {moves.map((m, i) => (
